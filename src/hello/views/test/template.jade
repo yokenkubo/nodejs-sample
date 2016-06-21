@@ -1,0 +1,41 @@
+extends ../layout
+
+block scripts
+    link(rel='stylesheet', href='/stylesheets/template.css')
+    script(type='text/javascript', src='/javascripts/template.js')
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDcN2cxxQpN56tXjSjaNsfjm151mW2RiMw')
+
+block content
+  div.container-fluid
+    div.row-fluid
+      div.span2
+        mixin left-container() // ここは左コンテナ
+      div.span10
+        mixin right-container() // ここは右コンテナ
+
+mixin left-container()
+  // | 左コンテナ
+  label
+    | 名前：
+  input(type="text").myName
+  label
+    | 緯度：
+  input(type="text").myName#my-latitude
+  label
+    | 経度：
+  input(type="text").myName#my-longitude
+  label
+    | 方角：
+  input(type="text").myName#my-direction
+  button#entry.btn.btn-primary
+    | 登録
+
+mixin right-container()
+  // | 右コンテナ
+  div.map-embed
+    div#map-canvas
+      | ここの地図が表示されるよ.
+
+
+
+
