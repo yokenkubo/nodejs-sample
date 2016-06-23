@@ -1,9 +1,10 @@
 $(function () {
 	console.log("start template.js");
 	
+	MyMap.init();
 	navigator.geolocation.getCurrentPosition(function(position) {
 		MyForm.setLatLng(position.coords.latitude, position.coords.longitude);
-		MyMap.init(position.coords.latitude, position.coords.longitude);
+		MyMap.setCurrentPosition(position.coords.latitude, position.coords.longitude);
 	});
 	
 	MyForm.setEventListener();
@@ -19,6 +20,7 @@ MyForm = {
 	setLatLng: function (lat, lng) {
 		$("#my-latitude").val(this.round(lat));
 		$("#my-longitude").val(this.round(lng));
+		MyMap.refreshCurrentPosition();
 	}, 
 	getLatLng: function () {
 		return new google.maps.LatLng($("#my-latitude").val(), $("#my-longitude").val());
@@ -29,6 +31,7 @@ MyForm = {
 	setEventListener: function () {
 		window.addEventListener('deviceorientation', function(event){ 
 		    $('#my-direction').val(Math.ceil(360 - event.alpha)); // event.alphaで方角の値を取得
+			MyMap.refreshCurrentPosition();
 		});
 	},
 	clickEntry: function (event) {
@@ -51,8 +54,12 @@ MyForm = {
 MyMap = {
 	map: null, 
 	markers: [], 
-	init: function (lat, lng) {
-		this.canvas = document.getElementById('map-canvas');
+	init: function () {
+		if (! this.canvas) {
+			this.canvas = document.getElementById('map-canvas');
+		}
+	},
+	setCurrentPosition: function (lat, lng) {
 		var latlng = new google.maps.LatLng(lat, lng);
 		var mapOptions = {
 			zoom: 15, 
@@ -95,5 +102,26 @@ MyMap = {
 				});
 			}
 		})
+	},
+	currentPositionMarker: null,
+	refreshCurrentPosition: function () {
+		var latLng = MyForm.getLatLng();
+		var direction = MyForm.getDirection();
+		var markerOptions = {
+			position: latLng,
+			map: this.map, 
+			icon: {
+			      path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+			      scale: 4,
+			      strokeColor: "green", 
+			      rotation: direction
+			}
+		};
+		var marker = new google.maps.Marker(markerOptions);
+		if (this.currentPositionMarker) {
+			this.currentPositionMarker.setMap(null);
+			this.currentPositionMarker = null;
+		} 
+		this.currentPositionMarker = marker;
 	}
 }
