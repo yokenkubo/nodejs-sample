@@ -2,6 +2,16 @@ var express = require('express');
 var qs = require('querystring');
 var fs = require('fs');
 var router = express.Router();
+var config = require('config');
+process.env.http_proxy = config.env.http_proxy;
+process.env.https_proxy = config.env.https_proxy;
+var gcloud = require('gcloud')({
+	keyFilename: './resources/My Project-c29efc2230ee.json',
+	projectId: 'loyal-burner-135023', 
+});
+
+
+var vision = gcloud.vision();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -43,14 +53,22 @@ router.get('/template/marker', function(req, res, next) {
 	res.send(data);
 });
 
-router.get('/template/arrow.svg', function(req, res, next) {
-	console.log("start get /template/arrow.svg");
-	var triData = "";
-	triData += '<svg width="200" height="200" viewBox="0 -0 200 200">';
-	triData += '  <polygon points="0,50 50,100 0,150 200,100" fill="#ff0000" stroke="#ff0000" />';
-	triData += '</svg>';
-	res.writeHead(200, {'Content-Type': 'image/svg+xml'});
-	res.send(triData);
+router.post('/template/vision', function(req, res, next) {
+	res.send('respond with a resource');
+});
+
+router.get('/template/vision', function (req, res, next) {
+	console.log("start GET /test/template/vision");
+	vision.detect('resources/image.jpg', ['face', 'label'], function(err, detections, apiResponse) {
+		console.log("start detect");
+		var data = JSON.stringify(detections, null, "    ");
+		console.log(err);
+		console.log(data);
+		console.log(apiResponse);
+		console.log("end detect");
+		res.send(data);
+	});
+	console.log("end GET /test/template/vision");
 });
 
 module.exports = router;
