@@ -10,6 +10,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var test = require('./routes/test');
 var kuboModule = require('./routes/kubo_test');
+var eventList = require('./routes/kamigou/eventList');
+var eventDetail = require('./routes/kamigou/eventDetail');
+var eventEntry = require('./routes/kamigou/eventEntry');
 
 var app = express();
 
@@ -31,6 +34,10 @@ app.use('/users', users);
 // ここに個別の処理を書くよ
 app.use('/test', test);
 app.use('/kubo', kuboModule);
+
+app.use('/kamigou/eventList', eventList);
+app.use('/kamigou/eventDetail', eventDetail);
+app.use('/kamigou/eventEntry', eventEntry);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

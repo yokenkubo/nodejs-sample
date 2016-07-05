@@ -1,0 +1,18 @@
+extends ./layout
+
+block scripts
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDcN2cxxQpN56tXjSjaNsfjm151mW2RiMw')
+
+block content
+  // ここに処理を書いてください。
+  div.content
+    span イベントの登録
+    br
+    a(href="./eventList") Topページ
+    br
+    a(href="./eventDetail") 詳細ページ
+    br
+    a(href="./eventEntry") 登録ページ
+
+
+
