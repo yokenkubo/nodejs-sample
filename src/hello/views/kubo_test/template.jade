@@ -1,0 +1,21 @@
+extends ./layout
+
+block scripts
+    link(rel='stylesheet', href='/stylesheets/jquery.mobile/jquery.mobile-1.4.5.css')
+    script(type='text/javascript', src='/javascripts/kubo_test/template.js')
+    script(type='text/javascript', src='/stylesheets/jquery.mobile/jquery.mobile-1.4.5.js')
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDcN2cxxQpN56tXjSjaNsfjm151mW2RiMw')
+
+block content
+  div#header(data-role='header', data-theme="a")
+    h1 #{title}
+  div#kubo_test_first(data-role='page', data-title='jquery sample page')
+    div.ui-content(data-role='main')
+      h1 ここはメイン(1枚目)
+      a.slideToNext(href='#kubo_test_second', data-transition='slide') 2枚目に移動
+  div#kubo_test_second(data-role='page', data-title='jquery sample page', data-fullscreen='true')
+    div.ui-content(data-role='main')
+      div#map-canvas(style='width: 100%; height: 100%;', data-fullscreen='true') ここに地図が表示されるよ.
+  div#footer(data-role='footer', data-theme="a")
+    h1 ここにフッタが入る
+

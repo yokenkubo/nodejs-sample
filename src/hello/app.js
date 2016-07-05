@@ -9,6 +9,7 @@ var config = require('config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var test = require('./routes/test');
+var kuboModule = require('./routes/kubo_test');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/users', users);
 
 // ここに個別の処理を書くよ
 app.use('/test', test);
+app.use('/kubo', kuboModule);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

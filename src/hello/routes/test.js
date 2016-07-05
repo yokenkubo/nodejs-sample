@@ -5,13 +5,6 @@ var router = express.Router();
 var config = require('config');
 process.env.http_proxy = config.env.http_proxy;
 process.env.https_proxy = config.env.https_proxy;
-var gcloud = require('gcloud')({
-	keyFilename: './resources/My Project-c29efc2230ee.json',
-	projectId: 'loyal-burner-135023', 
-});
-
-
-var vision = gcloud.vision();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -48,27 +41,9 @@ router.get('/template/marker', function(req, res, next) {
 	} catch (e) {
 		var data = [];
 	}
-	data = JSON.stringify(data);
+	// data = JSON.stringify(data);
 	console.log(data);
-	res.send(data);
-});
-
-router.post('/template/vision', function(req, res, next) {
-	res.send('respond with a resource');
-});
-
-router.get('/template/vision', function (req, res, next) {
-	console.log("start GET /test/template/vision");
-	vision.detect('resources/image.jpg', ['face', 'label'], function(err, detections, apiResponse) {
-		console.log("start detect");
-		var data = JSON.stringify(detections, null, "    ");
-		console.log(err);
-		console.log(data);
-		console.log(apiResponse);
-		console.log("end detect");
-		res.send(data);
-	});
-	console.log("end GET /test/template/vision");
+	res.json(data);
 });
 
 module.exports = router;
