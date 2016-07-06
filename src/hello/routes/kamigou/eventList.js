@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 		if(targetYmd >= formatted) {
 			// try-catchでthrowして中断
 			try {
-				var strJson = fs.readFileSync('data/event/' + fileName, 'utf8');
+				var strJson = fs.readFileSync('public/event/' + fileName, 'utf8');
 				var jsonData = JSON.parse(strJson);
 			} catch (e) {
 				var jsonData = [];

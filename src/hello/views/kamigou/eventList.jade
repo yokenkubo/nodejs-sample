@@ -57,16 +57,11 @@ html
           - for (var i in objs) {
               div
                 p(style="position:relative;")
-                  img(src=objs[i].picture,opacity="0.2",filter="alpha(opacity=5)",-ms-filter="alpha(opacity=5)")
+                  a(href="/kamigou/eventDetail?file_name=" + objs[i].filename)
+                    img(src=objs[i].picture,opacity="0.2",filter="alpha(opacity=5)",-ms-filter="alpha(opacity=5)")
                   span(style="position: absolute; top: 5px; left: 10px; width: 150px;")  #{objs[i].date} #{objs[i].title}
           - }
 
-hr
-span トップページ（イベントの一覧）
-br
-a(href="./eventList") Topページ
-br
-a(href="./eventDetail") 詳細ページ
-br
-a(href="./eventEntry") 登録ページ
+p(class="btn01")
+  a(href="./eventEntry") 登録ページ
 
