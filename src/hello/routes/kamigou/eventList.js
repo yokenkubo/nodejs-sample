@@ -41,8 +41,8 @@ router.get('/', function(req, res, next) {
 		}
 	});
 
-	console.log(JSON.stringify(resultJson));
-	res.render('kamigou/eventList', JSON.stringify(resultJson, null, '    '));
+	// console.log(JSON.stringify(resultJson));
+	res.render('kamigou/eventList', {events: resultJson});
 });
 
 module.exports = router;
