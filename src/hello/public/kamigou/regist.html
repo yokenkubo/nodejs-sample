@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>登録フォーム</title>
+
+	<style>
+	h1{
+		margin-left:230px;
+	}
+	.form{
+		margin:20px;		
+		font-weight:bold;
+		font-family:メイリオ;
+		
+	}
+
+	#btn{
+		font-size:20px;
+		font-family:メイリオ;
+	}
+
+	.wid{
+		float:left;
+		width:100px;
+	}
+
+	#sentInfo{
+		margin-left:500px;
+	}
+	
+}
+
+
+	</style>
+		
+</head>
+
+<body>
+<h1>登録フォーム</h1>
+<br>
+<form>
+	
+<div class="form"><span class="wid">イベント名:</span><input type="text" size="53"></div>
+<!--<div class="form"><span class="wid">日時:</span><input type="text" placeholder="例：2016/01/01"></div>-->
+<div class="form"><span class="wid">日時:</span><input type="date"></div>
+
+<div class="form"><span class="wid">内容:</span><textarea rows="10" cols="54" placeholder="ここに入力してください"></textarea></div>
+<!--<div class="form"><span class="wid">場所:</span><img src="./map.png" width="450"  height="300"></div>-->
+<div class="form"><span class="wid">場所:</span><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.384396584116!2d139.57696073228792!3d35.346105530073594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60184450923fed99%3A0x2c99c653a186534!2z44CSMjQ3LTAwMjQg56We5aWI5bed55yM5qiq5rWc5biC5qCE5Yy66YeO5LiD6YeM77yR5LiB55uu77yT77yQ4oiS77yR77yZIOS4iumDt-ODjeOCquODneODquOCueiHquayu-S8mumkqA!5e0!3m2!1sja!2sjp!4v1467780454717" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+
+	
+</form>
+<br>
+
+<div id="sentInfo"><input type="button" value="登録" id="btn"></div>
+<br>
+<div>問い合わせは<a href="">こちら</a></div>
+
+
+</body>
+</HTML>

@@ -39,14 +39,8 @@ html
 
   div#tadasuke.
     <header>
-    	<h1><img src="images/title.png" alt="ふらっと上郷"></h1>
-    	<div class="slide">
-    		<ul class="slideInner">
-    			<li><img src="images/photo01.jpg" alt=""></li>
-    			<li><img src="images/photo02.jpg" alt=""></li>
-    			<li><img src="images/photo03.jpg" alt=""></li>
-    		</ul>
-    	</div><!-- /.slide -->
+      <img src="/images/title_a.png" alt="ふらっと上郷" style="padding-top: 10px; padding-left: 20px;">
+      <img src="/images/subTitle.png" alt="ふらっと上郷" style="width:300px;height:80px;padding-bottom:5px;padding-top:10px;padding-left: 50px;">
     </header>
     
   div.content
@@ -57,10 +51,10 @@ html
               div(style="margin-right:2px;margin-left:2px;margin-top:2px")
                 p(style="position:relative;")
                   a(href="/kamigou/eventDetail?file_name=" + objs[i].filename)
-                    img(src=objs[i].picture,opacity="0.2",style="filter:alpha(opacity=5);-ms-filter:alpha(opacity=5);margin-bottom:2px")
-                    span(style="position: absolute; top: 5px; left: 10px; width: 150px;")  #{objs[i].date} #{objs[i].title}
+                    img(src=objs[i].picture,opacity="0.2",style="filter:alpha(opacity=5);-ms-filter:alpha(opacity=5);margin-bottom:15px;width:605px;height:300px; box-shadow:1px 1px 5px 5px #ccc")
+                    span(style="position: absolute; top: 5px; left: 10px; width: 150px", class="eventimgs")  #{objs[i].date} #{objs[i].title}
           - }
 
 p(class="btn01")
-  a(href="./eventEntry") 登録ページ
+  a(href="./eventEntry.html") 登録ページ
 
