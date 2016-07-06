@@ -41,7 +41,7 @@ MyMap = {
 		inContents +=       '<img id="eventPicImg" src="/images/Desert.jpg" style="float:left;margin:0 1em 0.5em 0;border-radius:5px;width: 96px;height: 65px;" alt="" />';
 		inContents +=     '</a>';
 		inContents +=     '<h4 id="eventDate">2016/07/07(木)</h3>';
-		inContents +=     '<h3 id="eventTitle">納涼祭</h3>';
+		inContents +=     '<h3 id="eventTitle">納涼祭ですよ</h3>';
 		inContents +=     '<p id="eventInfo">今年もやってきました！上郷ネオポリス納涼祭です。皆さんふるってご参加ください</p>';
 		inContents +=   '</div>';
 		inContents += '</div>';
@@ -52,10 +52,29 @@ MyMap = {
 			pixelOffset: new google.maps.Size(0, -35), // 横方向に0, 上方向に10pxずらす
 		});
 
+		google.maps.event.addListener(info, 'domready', function() {
+			MyMap._ajaxEventData();
+		});
+
 		// 情報ウィンドウ(のインスタンス)を地図に設置(レンダリング)する
 		info.open(this.map);
 		info.setPosition(latlng);
 		this.infos.push(info);
-	}
+	},
+
+	_ajaxEventData: function () {
+		var filePath = "/datas/event20160708120000.json";
+		$.ajax({
+			type: 'GET',
+			url: filePath,
+			success: function (data) {
+				$("#eventTitle").text(data.title);
+				$("#eventPicA").attr("href", data.picture);
+				$("#eventPicImg").attr("src", data.picture);
+				$("#eventInfo").text(data.contents);
+			}
+		});
+	},
+
 
 }
