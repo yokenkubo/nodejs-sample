@@ -4,7 +4,7 @@ html
   head
     meta(charset='UTF-8')
     meta(viewport="width=device-width")
-    title '碧い風 上郷ネオポリス'
+    title 'ふらっと上郷'
     link(rel='stylesheet', href='/kamigou/css/style.css' media='all')
     script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDcN2cxxQpN56tXjSjaNsfjm151mW2RiMw')
     script(type='text/javascript', src='/kamigou/js/jquery.js')
@@ -39,7 +39,7 @@ html
 
   div#tadasuke.
     <header>
-    	<h1><img src="images/title.png" alt="碧い風 上郷ネオポリス"></h1>
+    	<h1><img src="images/title.png" alt="ふらっと上郷"></h1>
     	<div class="slide">
     		<ul class="slideInner">
     			<li><img src="images/photo01.jpg" alt=""></li>
@@ -50,7 +50,7 @@ html
     </header>
     
   div.content
-    h2 イベント
+    h2 ふらっと上郷
       div.twoCol
         div.twoColInner
           - var objs = events;
@@ -59,7 +59,7 @@ html
                 p(style="position:relative;")
                   a(href="/kamigou/eventDetail?file_name=" + objs[i].filename)
                     img(src=objs[i].picture,opacity="0.2",filter="alpha(opacity=5)",-ms-filter="alpha(opacity=5)")
-                  span(style="position: absolute; top: 5px; left: 10px; width: 150px;")  #{objs[i].date} #{objs[i].title}
+                    span(style="position: absolute; top: 5px; left: 10px; width: 150px;")  #{objs[i].date} #{objs[i].title}
           - }
 
 p(class="btn01")
