@@ -12,6 +12,7 @@ body {
 	font-size:14px;
 	font-family:"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
 	line-height:1.6;
+	background: #fffff0;
 }
 
 header {
@@ -30,7 +31,7 @@ header {
 }
 
 #in_contents {
-	width:200px;
+	width:500px;
 	margin:0 auto;
 }
 
@@ -508,3 +509,31 @@ footer {
 {
 	max-width: none ;
 }
+
+#eventInfoWindow
+{
+	width: 800px;
+
+}
+
+#eventPicImg
+{
+	float: left;
+	margin: 0 1em 0.5em 0;
+	border-radius:5px;
+	width: 300px;
+}
+#eventTitle
+{
+	font-size: 3em;
+}
+#eventDate
+{
+	font-size: 1.8em;
+}
+#eventInfo
+{
+	font-size: 1.4em;
+}
+
+

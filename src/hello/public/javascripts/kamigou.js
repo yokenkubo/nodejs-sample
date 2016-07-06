@@ -40,21 +40,25 @@ MyMap = {
 	_putInfo: function(latlng) {
 
 		var inContents = '';
-		inContents += '<div id="in_contents">';
+		inContents += '<div id="eventInfoWindow">';
 		inContents +=   '<div id="imgL">';
+		inContents +=     '<div >';
 		inContents +=     '<a id="eventPicA" href="/images/Desert.jpg" data-lity>';
-		inContents +=       '<img id="eventPicImg" src="/images/Desert.jpg" style="float:left;margin:0 1em 0.5em 0;border-radius:5px;width: 96px;height: 65px;" alt="" />';
+		inContents +=       '<img id="eventPicImg" src="/images/Desert.jpg" />';
 		inContents +=     '</a>';
 		inContents +=     '<h4 id="eventDate">--</h3>';
 		inContents +=     '<h3 id="eventTitle">--</h3>';
+		inContents +=     '</div >';
 		inContents +=     '<p id="eventInfo">-イベント情報-</p>';
+		inContents +=     '<br />';
+		inContents +=     '<img id="eventPicImg" style="width: 100px;" src="/images/join.png" />';
 		inContents +=   '</div>';
 		inContents += '</div>';
 
 		var info = new google.maps.InfoWindow( {
 			content: inContents,
 //			content: "<span>吹き出しのメッセージ</span>",
-			pixelOffset: new google.maps.Size(0, -35), // 横方向に0, 上方向に10pxずらす
+			pixelOffset: new google.maps.Size(0, -35), // 横方向に0, 上方向に35pxずらす
 		});
 
 		google.maps.event.addListener(info, 'domready', function() {
@@ -73,10 +77,16 @@ MyMap = {
 			type: 'GET',
 			url: filePath,
 			success: function (data) {
-				$("#eventTitle").text(data.title);
-				$("#eventPicA").attr("href", data.picture);
-				$("#eventPicImg").attr("src", data.picture);
-				$("#eventInfo").text(data.contents);
+				var data0 = data;
+				$("#eventTitle").text(data0.title);
+				$("#eventPicA").attr("href", data0.picture);
+				$("#eventPicImg").attr("src", data0.picture);
+				$("#eventInfo").text(data0.contents);
+				$("#eventDate").text(data0.date);
+				var latlng = new google.maps.LatLng((data.lat), (data.lng));
+				MyMap.markers[0].setPosition(latlng);
+				MyMap.infos[0].setPosition(latlng);
+				MyMap.map.panTo(new google.maps.LatLng(latlng.lat() + 0.0015, latlng.lng()));
 			}
 		});
 	},
