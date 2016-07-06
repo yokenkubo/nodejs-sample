@@ -40,9 +40,9 @@ MyMap = {
 		inContents +=     '<a id="eventPicA" href="/images/Desert.jpg" data-lity>';
 		inContents +=       '<img id="eventPicImg" src="/images/Desert.jpg" style="float:left;margin:0 1em 0.5em 0;border-radius:5px;width: 96px;height: 65px;" alt="" />';
 		inContents +=     '</a>';
-		inContents +=     '<h4 id="eventDate">2016/07/07(木)</h3>';
-		inContents +=     '<h3 id="eventTitle">納涼祭ですよ</h3>';
-		inContents +=     '<p id="eventInfo">今年もやってきました！上郷ネオポリス納涼祭です。皆さんふるってご参加ください</p>';
+		inContents +=     '<h4 id="eventDate">--</h3>';
+		inContents +=     '<h3 id="eventTitle">--</h3>';
+		inContents +=     '<p id="eventInfo">-イベント情報-</p>';
 		inContents +=   '</div>';
 		inContents += '</div>';
 
@@ -63,7 +63,7 @@ MyMap = {
 	},
 
 	_ajaxEventData: function () {
-		var filePath = "/event/event20160708120000.json";
+		// var filePath = "/event/event20160708120000.json";
 		$.ajax({
 			type: 'GET',
 			url: filePath,
