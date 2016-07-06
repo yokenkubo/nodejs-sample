@@ -10,6 +10,10 @@ MyMap = {
 	markers: [],
 	infos: [],
 	init: function () {
+		// 高さ設定
+		var height = $(window).height() - 100;
+		$("#EventDetailMap").height(height);
+
 		if (! this.canvas) {
 			this.canvas = document.getElementById('EventDetailMap');
 		}
@@ -19,6 +23,7 @@ MyMap = {
 			center: latlng,
 		}
 		this.map = new google.maps.Map(this.canvas, mapOptions);
+
 		this._putMarker(latlng)
 		this._putInfo(latlng)
 	},
@@ -75,6 +80,11 @@ MyMap = {
 			}
 		});
 	},
-
-
 }
+
+$(window).resize(function() {
+	var height = $(window).height() - 100;
+	$("#EventDetailMap").height(height);
+	console.log(height);
+});
+$(window).resize();
