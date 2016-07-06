@@ -13,9 +13,9 @@ MyMap = {
 		if (! this.canvas) {
 			this.canvas = document.getElementById('EventDetailMap');
 		}
-		var latlng = new google.maps.LatLng((35.703512), (139.743012));
+		var latlng = new google.maps.LatLng((35.346184), (139.579519));
 		var mapOptions = {
-			zoom: 15,
+			zoom: 17,
 			center: latlng,
 		}
 		this.map = new google.maps.Map(this.canvas, mapOptions);
