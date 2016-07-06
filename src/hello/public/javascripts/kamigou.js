@@ -63,7 +63,7 @@ MyMap = {
 	},
 
 	_ajaxEventData: function () {
-		var filePath = "/datas/event20160708120000.json";
+		var filePath = "/event/event20160708120000.json";
 		$.ajax({
 			type: 'GET',
 			url: filePath,
