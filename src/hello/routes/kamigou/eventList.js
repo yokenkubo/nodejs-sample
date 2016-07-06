@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 	var formatted = dt.toFormat("YYYYMMDDHH24MISS");
 	var reg=/(.*)(?:\.([^.]+$))/;
 	var resultJson = [];
-	var fileList = fs.readdirSync('data/event');
+	var fileList = fs.readdirSync('public/data/event');
 
 	fileList.forEach(function(fileName) {
 		var targetYmd = fileName.match(reg)[1];
@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 		if(targetYmd >= formatted) {
 			// try-catchでthrowして中断
 			try {
-				var strJson = fs.readFileSync('public/event/' + fileName, 'utf8');
+				var strJson = fs.readFileSync('public/data/event/' + fileName, 'utf8');
 				var jsonData = JSON.parse(strJson);
 			} catch (e) {
 				var jsonData = [];
