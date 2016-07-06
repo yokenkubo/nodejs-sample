@@ -1,20 +1,72 @@
-extends ./layout
-
-block scripts
+- console.log("eventList.jade");
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(viewport="width=device-width")
+    title '碧い風 上郷ネオポリス'
+    link(rel='stylesheet', href='/kamigou/css/style.css' media='all')
     script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDcN2cxxQpN56tXjSjaNsfjm151mW2RiMw')
+    script(type='text/javascript', src='/kamigou/js/jquery.js')
+    script(type='text/javascript', src='/kamigou/js/jquery.smoothscroll.js')
+    script(type='text/javascript', src='/kamigou/js/jquery.smoothscroll.js')
+    script(type='text/javascript', src='/kamigou/js/jquery.scrollshow.js')
+    script(type='text/javascript', src='/kamigou/js/jquery.slideshow.js')
+    script(type='text/javascript', src='/kamigou/js/script.js')
 
-block content
-  // ここに処理を書いてください。
-  // tadasuke2
+    script.
+      $(function($){
+      	$('html').smoothscroll({easing : 'swing', speed : 1000, margintop : 30, headerfix : $('nav')});
+      	$('.totop').scrollshow({position : 500});
+      	$('.slide').slideshow({
+      		touch        : false,
+      		bgImage      : true,
+      		autoSlide    : true,
+      		effect       : 'fade',
+      		repeat       : true,
+      		easing       : 'swing',
+      		interval     : 5000,
+      		duration     : 1000,
+      		imgHoverStop : false,
+      		navHoverStop : false,
+      		navImg       : false,
+      		navImgCustom : false,
+      		navImgSuffix : ''
+      	});
+      });
+
+  body
+
+  div#tadasuke.
+    <header>
+    	<h1><img src="images/title.png" alt="碧い風 上郷ネオポリス"></h1>
+    	<div class="slide">
+    		<ul class="slideInner">
+    			<li><img src="images/photo01.jpg" alt=""></li>
+    			<li><img src="images/photo02.jpg" alt=""></li>
+    			<li><img src="images/photo03.jpg" alt=""></li>
+    		</ul>
+    	</div><!-- /.slide -->
+    </header>
+    
   div.content
-    hr
-    span トップページ（イベントの一覧）
-    br
-    a(href="./eventList") Topページ
-    br
-    a(href="./eventDetail") 詳細ページ
-    br
-    a(href="./eventEntry") 登録ページ
+    h2 イベント
+      div.twoCol
+        div.twoColInner
+          - var objs = events;
+          - for (var i in objs) {
+              div
+                p(style="position:relative;")
+                  img(src=objs[i].picture,opacity="0.2",filter="alpha(opacity=5)",-ms-filter="alpha(opacity=5)")
+                  span(style="position: absolute; top: 5px; left: 10px; width: 150px;")  #{objs[i].date} #{objs[i].title}
+          - }
 
-
+hr
+span トップページ（イベントの一覧）
+br
+a(href="./eventList") Topページ
+br
+a(href="./eventDetail") 詳細ページ
+br
+a(href="./eventEntry") 登録ページ
 

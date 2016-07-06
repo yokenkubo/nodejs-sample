@@ -35,10 +35,10 @@ MyMap = {
 	_putInfo: function(latlng) {
 
 		var inContents = '';
-		inContents += '<div id="contents">';
+		inContents += '<div id="in_contents">';
 		inContents +=   '<div id="imgL">';
 		inContents +=     '<a id="eventPicA" href="/images/Desert.jpg" data-lity>';
-		inContents +=       '<img id="eventPicImg" src="/images/Desert.jpg" alt="" />';
+		inContents +=       '<img id="eventPicImg" src="/images/Desert.jpg" style="float:left;margin:0 1em 0.5em 0;border-radius:5px;width: 96px;height: 65px;" alt="" />';
 		inContents +=     '</a>';
 		inContents +=     '<h4 id="eventDate">2016/07/07(木)</h3>';
 		inContents +=     '<h3 id="eventTitle">納涼祭</h3>';

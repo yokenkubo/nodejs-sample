@@ -1,21 +1,22 @@
 extends ./layout
 
 block scripts
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/lity.min.css')
     script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDcN2cxxQpN56tXjSjaNsfjm151mW2RiMw')
     script(type='text/javascript', src='/javascripts/kamigou.js')
+    script(type='text/javascript', src='/javascripts/jquery-2.2.4.js')
+    script(type='text/javascript', src='/javascripts/lity.min.js')
 
 block content
   // ここに処理を書いてください。
+  h3 藍の風 ～上郷ネオポリス～
   div.content
-    span イベントの詳細
+    div#map_container(style="position: relative; width:100%; height: 60%; padding-top: 50%;")
+        div#EventDetailMap(style="position: absolute; width: 100%; height: 100%; top: 0;")
     br
-    a(href="./eventList") Topページ
-    br
-    a(href="./eventDetail") 詳細ページ
-    br
-    a(href="./eventEntry") 登録ページ
-    span ＜イベント情報＞
-    div#EventDetailMap(style="width: 100%; height: 500px;")
+    p(class="btn01")
+        a(href="./eventList") 戻る
 
 
 
