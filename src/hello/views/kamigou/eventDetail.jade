@@ -2,6 +2,7 @@ extends ./layout
 
 block scripts
     script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDcN2cxxQpN56tXjSjaNsfjm151mW2RiMw')
+    script(type='text/javascript', src='/javascripts/kamigou.js')
 
 block content
   // ここに処理を書いてください。
@@ -13,6 +14,8 @@ block content
     a(href="./eventDetail") 詳細ページ
     br
     a(href="./eventEntry") 登録ページ
+    span ＜イベント情報＞
+    div#EventDetailMap(style="width: 100%; height: 500px;")
 
 
 
