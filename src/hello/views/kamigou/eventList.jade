@@ -50,15 +50,14 @@ html
     </header>
     
   div.content
-    h2 ふらっと上郷
       div.twoCol
         div.twoColInner
           - var objs = events;
           - for (var i in objs) {
-              div
+              div(style="margin-right:2px;margin-left:2px;margin-top:2px")
                 p(style="position:relative;")
                   a(href="/kamigou/eventDetail?file_name=" + objs[i].filename)
-                    img(src=objs[i].picture,opacity="0.2",filter="alpha(opacity=5)",-ms-filter="alpha(opacity=5)")
+                    img(src=objs[i].picture,opacity="0.2",style="filter:alpha(opacity=5);-ms-filter:alpha(opacity=5);margin-bottom:2px")
                     span(style="position: absolute; top: 5px; left: 10px; width: 150px;")  #{objs[i].date} #{objs[i].title}
           - }
 
