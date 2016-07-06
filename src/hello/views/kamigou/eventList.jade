@@ -57,7 +57,8 @@ html
           - for (var i in objs) {
               div
                 p(style="position:relative;")
-                  img(src=objs[i].picture,opacity="0.2",filter="alpha(opacity=5)",-ms-filter="alpha(opacity=5)")
+                  a(href="/kamigou/eventDetail?file_name=" + objs[i].filename)
+                    img(src=objs[i].picture,opacity="0.2",filter="alpha(opacity=5)",-ms-filter="alpha(opacity=5)")
                   span(style="position: absolute; top: 5px; left: 10px; width: 150px;")  #{objs[i].date} #{objs[i].title}
           - }
 
