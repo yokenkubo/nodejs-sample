@@ -14,6 +14,8 @@ block content
   div.content
     div#map_container(style="position: relative; width:100%; height: 60%; padding-top: 50%;")
         div#EventDetailMap(style="position: absolute; width: 100%; height: 100%; top: 0;")
+        script.
+          var filePath = "/event/#{file_name}"
     br
     p(class="btn01")
         a(href="./eventList") 戻る
